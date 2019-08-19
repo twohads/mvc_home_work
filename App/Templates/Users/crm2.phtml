@@ -1,0 +1,24 @@
+<?
+$allUser = $this->allUser;
+?>
+
+Все пользователи:</br>
+<div>
+    <a href="crm">Посмотреть в другом порядке</a>
+</div>
+
+</form>
+
+<? if (!empty($allUser)): ?>
+
+    <? foreach ($allUser as $user): ?>
+        <ul>
+            <? if ($user['age'] > 18): ?>
+                <li><?= $user['name']; ?>. Возраст: <?= $user['age']; ?>. Совершеннолетний</li>
+            <? else: ?>
+                <li><?= $user['name']; ?>. Возраст: <?= $user['age']; ?>. Несовершеннолетний</li>
+            <? endif; ?>
+        </ul>
+    <? endforeach; ?>
+<? endif; ?>
+

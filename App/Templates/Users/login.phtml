@@ -1,0 +1,28 @@
+<?
+/** @var \App\Models\User[] $wrongData */
+$dataCheck = $this->dataCheck;
+//var_dump($dataCheck);
+?>
+Введите логин и пароль для авторизации</br>
+<? if(!empty($dataCheck)): ?>
+    <? foreach ($dataCheck as $error): ?>
+        <div>
+            <br>
+            <b><?= $error; ?></b>
+        </div>
+    <? endforeach; ?>
+<? endif; ?>
+
+<form action="login" method="post">
+    <p>
+        <input type="hidden" name="command" value="login">
+    </p>
+    <p>
+        Имя: <input type="text" name="name" value=""></br>
+    </p>
+    <p>
+        Пароль: <input type="text" name="password" value=""></br>
+    </p>
+        <input type="submit" value="Войти в аккаунт">
+</form>
+

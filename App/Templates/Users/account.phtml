@@ -1,0 +1,32 @@
+<?
+$userBelong = $this->userBelong;
+$arrErr = $this->arrErr;
+?>
+
+Личный кабинет пользователя:</br> <?= $userBelong[0]["user"]["name"];?>
+<? if(!empty($arrErr)): ?>
+    <? foreach ($arrErr as $error): ?>
+        <div>
+            <br>
+            <b><?= $error; ?></b>
+        </div>
+    <? endforeach; ?>
+<? endif; ?>
+<form action="account" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="command" value="avatar">
+
+    <p>
+        <input type="file" name="accountfile"></br>
+    </p>
+    <input type="submit" value="Смнить аватар +">
+</form>
+
+<? foreach ($userBelong as $file): ?>
+<ul>
+    <li><?= $file['file']; ?></li>
+</ul>
+<? endforeach; ?>
+
+<div>
+    <a href="crm">Посмотреть всех пользователей</a>
+</div>
